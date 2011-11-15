@@ -1,0 +1,6 @@
+*~
+auto-save-buffers/
+repos/*
+repos/**/*
+installed/*
+installed/**/*
