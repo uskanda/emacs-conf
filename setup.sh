@@ -29,6 +29,9 @@ esac
 # echo "checkout popwin"
 # ln -s $VCDIR/popwin-el/popwin.el $DIR/site-lisp
 # echo "make symbolic link popwin"
+if [ -e "`which git`" ]; then
+  echo "git detected.";
+fi
 
 for var in `cat $DIR/setup/emacswiki_lisps`
 do
