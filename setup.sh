@@ -1,6 +1,6 @@
 #!/bin/sh
 DIR=$(cd $(dirname $0);pwd)
-VCDIR=$DIR/vc
+VCDIR=$DIR/repos
 LISPDIR=$DIR/installed
 
 install_rinari(){
@@ -37,3 +37,10 @@ for var in `cat $DIR/setup/emacswiki_lisps`
 do
 install_from_emacswiki $var
 done
+
+# cd repos
+# git clone git://repo.or.cz/anything-config.git
+# cd anything-config
+# ln -s $VCDIR/anything-config/anything.el $DIR/installed/
+# ln -s $VCDIR/anything-config/anything-config.el $DIR/installed/
+# ln -s $VCDIR/anything-config/anything-match-plugin.el $DIR/installed/

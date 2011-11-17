@@ -3,3 +3,5 @@ auto-save-buffers/
 repos/**/*
 installed/**/*
 installed/*
+*.elc
+**/*.elc
