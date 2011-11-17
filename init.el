@@ -18,7 +18,12 @@ windmove                  ;フレーム分割時、Shift+カーソルキーで�
 which-func                ;ミニバッファ中に現在のカーソル位置がどの関数に含まれるか表示する
 abbrev-minibuffer-display ;ミニバッファ中のマイナーモード表示を消す
 uniquify                  ;同一名のバッファをフォルダ名で区別できるようにする
+ruby                      ;Ruby
+ruby-electric
+ruby-block
+inf-ruby
 anything
+anything-project
 eldoc                     ;カーソル位置のEmacs Lisp関数のドキュメントをエコーエリアに表示
 ))                        ;この行はコメントアウトしないでください
 
