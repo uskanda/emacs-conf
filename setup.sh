@@ -9,7 +9,7 @@ install_rinari(){
 }
 
 install_from_url(){
-  echo -n download $2.el from $1...
+  printf "download $2.el from $1..."
   curl -s $1/$2.el > $LISPDIR/$2.el
   echo done. 
 }
