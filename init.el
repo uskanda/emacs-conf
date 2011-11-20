@@ -14,6 +14,7 @@ highlight-current-line    ;現在行の背景色を変更する
 highlight-current-column  ;現在列の背景色を変更する
 highlight-spaces          ;余分なスペースやタブなどを強調表示する
 auto-save-buffers         ;ファイルに更新があった瞬間にセーブする
+popwin
 windmove                  ;フレーム分割時、Shift+カーソルキーでウィンドウ移動を可能とする
 ;linum                     ;行番号を各行左に表示
 which-func                ;ミニバッファ中に現在のカーソル位置がどの関数に含まれるか表示する
@@ -26,6 +27,8 @@ inf-ruby
 anything
 anything-project
 migemo
+skeleton
+auto-executable           ;shebang(#!)を自動検知して自動でchmod +xする
 eldoc                     ;カーソル位置のEmacs Lisp関数のドキュメントをエコーエリアに表示
 ))                        ;この行はコメントアウトしないでください
 

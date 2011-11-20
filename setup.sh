@@ -38,9 +38,13 @@ do
 install_from_emacswiki $var
 done
 
-# cd repos
+cd repos
 # git clone git://repo.or.cz/anything-config.git
 # cd anything-config
 # ln -s $VCDIR/anything-config/anything.el $DIR/installed/
 # ln -s $VCDIR/anything-config/anything-config.el $DIR/installed/
 # ln -s $VCDIR/anything-config/anything-match-plugin.el $DIR/installed/
+
+git clone https://github.com/m2ym/popwin-el.git 
+cd popwin-el
+ln -s $VCDIR/popwin-el/popwin.el $DIR/installed/

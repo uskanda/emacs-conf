@@ -26,5 +26,7 @@ It works on Mac OS X, Linux and Windows(Cygwin).
     $ mv .emacs.d ~/
 
    If you have some emacs configs(e.g. ".emacs", ".emacs.el", ".emacs.d") already, you should backup and move your configs first.
+
 3. Run your Emacs
+
 4. Enjoy!

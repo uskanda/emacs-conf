@@ -14,10 +14,6 @@
 
 (require 'anything-kyr-config)
 
-(load "anything-spotlight2")
-
-
-
 (defcustom anything-c-source-mac-spotlight2-open-file-extensions
   '("pdf" "jpg" "gif" "psd" "ai" "png" "mpg" "avi" "mov")
   "List of file extensions to open by Mac OS X application."
