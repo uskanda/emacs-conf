@@ -1,4 +1,19 @@
 ;;-------------------------------------------------;;
+;; Common Lisp機能読み込み
+;;-------------------------------------------------;;
+(eval-when-compile (require 'cl))
+;;-------------------------------------------------;;
+
+;;-------------------------------------------------;;
+;; exec-pathにシステムのpathを追加
+;; http://d.hatena.ne.jp/sugyan/20100704/1278212225
+;;-------------------------------------------------;;
+(loop for x in (reverse
+                (split-string (substring (shell-command-to-string "echo $PATH") 0 -1) ":"))
+      do (add-to-list 'exec-path x))
+;;-------------------------------------------------;;
+
+;;-------------------------------------------------;;
 ;; 実行環境を判別する。
 ;; http://d.hatena.ne.jp/hito-d/20060220#1140445790
 ;;-------------------------------------------------;;
@@ -6,8 +21,8 @@
 (defvar run-unix
   (or (equal system-type 'gnu/linux)
       (or (equal system-type 'usg-unix-v)
-          (or  (equal system-type 'berkeley-unix)
-               (equal system-type 'cygwin)))))
+	  (or  (equal system-type 'berkeley-unix)
+	       (equal system-type 'cygwin)))))
 (defvar run-linux
   (equal system-type 'gnu/linux))
 (defvar run-system-v
@@ -53,10 +68,8 @@
 
 (when (and run-w32 run-meadow) (load "env-meadow"))
 (when run-carbon-emacs
-  (progn (load "env-carbon")
-         ))
+  (progn (load "env-carbon")))
 (when run-cocoa-emacs
-  (progn (load "env-cocoa")
-         ))
+  (progn (load "env-cocoa")))
 (when run-linux (load "env-linux"))
 ;;-------------------------------------------------;;

@@ -25,9 +25,9 @@ ruby-block
 inf-ruby
 anything
 anything-project
+migemo
 eldoc                     ;カーソル位置のEmacs Lisp関数のドキュメントをエコーエリアに表示
 ))                        ;この行はコメントアウトしないでください
-
 
 ;;----------------------------------------------------------------------------;;
 ;; Load Settings
