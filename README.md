@@ -17,15 +17,15 @@ It works on Mac OS X, Linux and Windows(Cygwin).
 ## Getting Started
 1. Clone this repository and run "setup.sh"
 
-      $ git clone git://github.com/uskanda/emacs-conf.git
-      $ ./emacs-conf/setup.sh
+        $ git clone git://github.com/uskanda/emacs-conf.git
+        $ ./emacs-conf/setup.sh
 
 2. Place emacs-conf in your home directory as ".emacs.d"
 
-      $ mv emacs-conf .emacs.d
-      $ mv .emacs.d ~/
+        $ mv emacs-conf .emacs.d
+        $ mv .emacs.d ~/
 
-   If you have some emacs configs(e.g. ".emacs", ".emacs.el", ".emacs.d") already, you should backup and move your configs first.
+    If you have some emacs configs(e.g. ".emacs", ".emacs.el", ".emacs.d") already, you should backup and move your configs first.
 
 3. Run your Emacs
 
