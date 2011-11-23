@@ -50,6 +50,7 @@
     inf-ruby                  ;
     popwin-inf-ruby
     rinari                    ;Ruby on Rails用機能追加
+    anything-kyr-rails        ;Rails利用時にM-xを最適化
     haml-mode                 ;haml/scss用モード追加
 ;;----------------------------------------------------------------------------;;
 ;; JavaScriptの設定
@@ -65,6 +66,7 @@
 ;; anythingの設定
 ;;----------------------------------------------------------------------------;;
     anything
+    anything-kyr
     anything-project
 migemo
 skeleton
