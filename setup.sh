@@ -1,6 +1,6 @@
 #!/bin/sh
 DIR=$(cd $(dirname $0);pwd)
-VCDIR=$DIR/repos
+REPOSDIR=$DIR/repos
 LISPDIR=$DIR/installed
 
 install_from_url(){
@@ -17,6 +17,38 @@ install_from_emacswiki(){
   install_from_url http://www.emacswiki.org/emacs/download/ $1
 }
 
+while getopts "cs" flag; do
+  case $flag in
+    \?) OPT_ERROR=1; break;;
+    c) opt_c=true;;
+    s) opt_s=true;;
+  esac
+done
+
+if [ $OPT_ERROR ]; then
+  echo >&2 "usage: $0 [-cs]"
+  exit 1
+fi
+
+if [ $opt_c ]; then
+    while :
+    do
+    printf "Clear all the install files? [y/n]"
+	read ans
+	case $ans in
+	    [yY]) break ;;
+	    [nN]) echo "exit."; exit 1 ;;
+	esac
+    done
+    printf "Remove repositories in $REPOSDIR... "
+    find $REPOSDIR ! -name ".gitignore" ! -regex "$REPOSDIR" | xargs rm -rf   
+    echo "done."
+    printf "Remove files and symbolic links in $LISPDIR... "
+    find $LISPDIR ! -name ".gitignore" ! -regex "$LISPDIR" | xargs rm
+    echo "done."
+    exit 1
+fi
+
 #requires ruby 1.9
 RUBYVER=$(ruby -v)
 case "$RUBYVER" in
@@ -24,10 +56,6 @@ case "$RUBYVER" in
   * ) echo "others";;
 esac
 
-# git clone https://github.com/m2ym/popwin-el $VCDIR/popwin-el
-# echo "checkout popwin"
-# ln -s $VCDIR/popwin-el/popwin.el $DIR/site-lisp
-# echo "make symbolic link popwin"
 if [ -e "`which git`" ]; then
   echo "git detected.";
 fi
@@ -37,69 +65,33 @@ do
 install_from_emacswiki $var
 done
 
-cd repos
-# git clone git://repo.or.cz/anything-config.git
-# cd anything-config
-# ln -s $VCDIR/anything-config/anything.el $DIR/installed/
-# ln -s $VCDIR/anything-config/anything-config.el $DIR/installed/
-# ln -s $VCDIR/anything-config/anything-match-plugin.el $DIR/installed/
-
-if [ -d $VCDIR/popwin-el ]; then
-  cd popwin-el
-  printf "popwin directory is exists."
-  git pull
-  cd ../
+cd $REPOSDIR
+#get elisps from git repository
+while read GITNAME GITURI GITELISPSSTR GITSUBCOMMANDSSTR
+do
+eval GITELISPS=$GITELISPSSTR;
+eval GITSUBCOMMANDS=$GITSUBCOMMANDSSTR;
+if [ -d $REPOSDIR/$GITNAME ]; then
+    if [ $opt_s ]; then
+	echo "$GITNAME directory already exists. skip this Elisp."
+    else 
+	cd $GITNAME
+	printf "$GITNAME directory already exists. check update... "
+	git pull
+	cd ../
+    fi
 else
-  git clone https://github.com/m2ym/popwin-el.git 
-  cd popwin-el
-  ln -s $VCDIR/popwin-el/popwin.el $DIR/installed/
-  cd ../
+    git clone $GITURI
+     cd $GITNAME
+    for (( i = 0; i < ${#GITSUBCOMMANDS[@]}; i++ ))
+    do
+      ${GITSUBCOMMANDS[i]}
+    done
+    for (( i = 0; i < ${#GITELISPS[@]}; i++ ))
+    do
+      ln -s $REPOSDIR/$GITNAME/${GITELISPS[i]}.el $LISPDIR
+    done
+    cd ../
 fi
-
-if [ -d $VCDIR/rinari ]; then
-  cd rinari
-  printf "rinari directory is exists."  
-  git pull
-  cd ../
-else  
-  git clone https://github.com/eschulte/rinari.git
-  cd rinari
-  git submodule init
-  git submodule update
-  ln -s $VCDIR/rinari/rinari.el $DIR/installed/
-  ln -s $VCDIR/rinari/util/ruby-compilation.el $DIR/installed/
-  ln -s $VCDIR/rinari/util/ruby-compilation-rspec.el $DIR/installed/
-  ln -s $VCDIR/rinari/util/jump/jump.el $DIR/installed/
-  ln -s $VCDIR/rinari/util/jump/findr.el $DIR/installed/
-  ln -s $VCDIR/rinari/util/jump/inflections.el $DIR/installed/
-  cd ../
-fi
-
-if [ -d $VCDIR/auto-complete ]; then
-  cd auto-complete
-  printf "auto-complete directory is exists."    
-  git pull
-  cd ../
-else
-  git clone https://github.com/m2ym/auto-complete.git
-  cd auto-complete
-  ln -s $VCDIR/auto-complete/auto-complete.el $DIR/installed/
-  ln -s $VCDIR/auto-complete/auto-complete-config.el $DIR/installed/
-  ln -s $VCDIR/auto-complete/fuzzy.el $DIR/installed/
-  ln -s $VCDIR/auto-complete/popup.el $DIR/installed/  
-  ln -s $VCDIR/auto-complete/dict $DIR/installed/ac-dict
-  cd ../
-fi
-
-if [ -d $VCDIR/js2-mode ]; then
-  cd js2-mode
-  printf "js2-mode directory is exists. "
-  git pull
-  cd ../ 
-else
-  git clone https://github.com/mooz/js2-mode.git
-  cd js2-mode
-  ln -s $VCDIR/js2-mode/js2-mode.el $DIR/installed/
-  cd ../
-fi
-
+done < $DIR/setup/git_lisps
+cd $DIR

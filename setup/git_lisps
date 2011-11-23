@@ -1,0 +1,6 @@
+anything-config http://repo.or.cz/r/anything-config.git ("anything"\ "anything-config"\ "anything-match-plugin")
+popwin-el https://github.com/m2ym/popwin-el.git ("popwin") 
+rinari https://github.com/eschulte/rinari.git ("rinari"\ "util/ruby-compilation"\ "util/ruby-compilation-rspec"\ "util/jump/jump"\ "util/jump/findr"\ "util/jump/inflections") ("git\ submodule\ init"\ "git\ submodule\ update")
+auto-complete https://github.com/m2ym/auto-complete.git ("auto-complete"\ "auto-complete-config"\ "fuzzy"\ "popup") ("ln\ -s\ $REPOSDIR/auto-complete/dict\ $LISPDIR/ac-dict")
+js2-mode https://github.com/mooz/js2-mode.git ("js2-mode")
+rvm.el https://github.com/senny/rvm.el.git ("rvm")
