@@ -44,12 +44,14 @@
 ;;----------------------------------------------------------------------------;;
 ;; Ruby/Ruby on Railsの設定
 ;;----------------------------------------------------------------------------;;
+    rvm                       ;RVMを利用している場合、現在利用中のRubyをEmacsでも使う
     ruby                      ;Rubyの基本設定
     ruby-electric             ;ブロック等の自動補完
     ruby-block
     inf-ruby                  ;
     popwin-inf-ruby
     rinari                    ;Ruby on Rails用機能追加
+    rvm-switch                ;rinari, inf-ruby利用時にRVMを切り替える
     anything-kyr-rails        ;Rails利用時にM-xを最適化
     haml-mode                 ;haml/scss用モード追加
 ;;----------------------------------------------------------------------------;;
@@ -80,7 +82,7 @@ skeleton
   (mapc '(lambda (path)
            (add-to-list 'load-path path))
         (mapcar 'expand-file-name paths)))
-(add-to-load-path "~/.emacs.d/included" "~/.emacs.d/conf" "~/.emacs.d/installed" "~/.emacs.d/")
+(add-to-load-path "~/.emacs.d/included" "~/.emacs.d/conf" "~/.emacs.d/installed" "~/.emacs.d/" "~/.emacs.d/development")
 
 ;;Load
 (defun load-each-settings (lisp-names)

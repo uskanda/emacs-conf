@@ -6,3 +6,4 @@ installed/*
 *.elc
 **/*.elc
 ac-comphist.dat
+development/
