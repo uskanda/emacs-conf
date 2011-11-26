@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 # byte-compile from command line
 # Needs Ruby 1.9.x
+# forked from:
 # http://d.hatena.ne.jp/rubikitch/20100107/bytecomp
 EMACS = "emacs"
 GLOBS = ["~/.emacs.d/init.el"]
