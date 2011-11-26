@@ -1,0 +1,6 @@
+(setq yas/snippet-dirs "~/.emacs.d/repos/yasnippet/snippets")
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/repos/yasnippet/snippets")
+(setq yas/fallback-behavior 'return-nil)
+(setq yas/prompt-functions '(yas/dropdown-prompt))

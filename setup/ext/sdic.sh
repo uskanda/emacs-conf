@@ -1,4 +1,5 @@
 #!/bin/sh
+cd $EXTDIR
 printf "setup sdic... "
 wget -q http://www.namazu.org/~tsuchiya/sdic/sdic-2.1.3.tar.gz
 tar jxvf sdic-2.1.3.tar.gz > /dev/null

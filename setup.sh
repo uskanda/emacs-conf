@@ -48,6 +48,9 @@ if [ $opt_c ]; then
     printf "Remove files and symbolic links in $LISPDIR... "
     find $LISPDIR ! -name ".gitignore" ! -regex "$LISPDIR" | xargs rm
     echo "done."
+    printf "Remove files in $EXTDIR... "
+    find $EXTDIR ! -name ".gitignore" ! -regex "$LISPDIR" | xargs rm -rf
+    echo "done."
     exit 1
 fi
 
