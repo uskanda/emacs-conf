@@ -3,6 +3,8 @@ auto-save-buffers/
 repos/**/*
 installed/**/*
 installed/*
+ext/**/*
+ext/*
 *.elc
 **/*.elc
 ac-comphist.dat

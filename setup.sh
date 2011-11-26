@@ -1,7 +1,9 @@
 #!/bin/sh
 DIR=$(cd $(dirname $0);pwd)
 export REPOSDIR=$DIR/repos
-LISPDIR=$DIR/installed
+export EXTDIR=$DIR/ext
+export EXTSETUPDIR=$DIR/setup/ext
+export LISPDIR=$DIR/installed
 
 install_from_url(){
   if [ -f $LISPDIR/$2.el ]; then
@@ -94,4 +96,18 @@ else
     cd ../
 fi
 done < $DIR/setup/git_lisps
+cd $DIR
+
+cd $EXTDIR
+for file in $EXTSETUPDIR/*.sh
+do
+  dirname=`basename ${file} .sh`
+  if [ -d $EXTDIR/$dirname ]; then
+    if [ $opt_s ]; then
+      echo "$dirname directory already exists. skip this external program."
+    fi
+  else 
+    sh $file
+  fi
+done
 cd $DIR

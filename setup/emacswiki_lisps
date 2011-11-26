@@ -4,4 +4,6 @@ col-highlight
 eldoc-extension
 ruby-block
 pos-tip
+sdic-inline
+sdic-inline-pos-tip
 
