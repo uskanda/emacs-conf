@@ -1,6 +1,6 @@
 #!/bin/sh
 DIR=$(cd $(dirname $0);pwd)
-REPOSDIR=$DIR/repos
+export REPOSDIR=$DIR/repos
 LISPDIR=$DIR/installed
 
 install_from_url(){

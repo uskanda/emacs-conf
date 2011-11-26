@@ -4,3 +4,4 @@ rinari https://github.com/eschulte/rinari.git ("rinari"\ "util/ruby-compilation"
 auto-complete https://github.com/m2ym/auto-complete.git ("auto-complete"\ "auto-complete-config"\ "fuzzy"\ "popup") ("ln\ -s\ $REPOSDIR/auto-complete/dict\ $LISPDIR/ac-dict")
 js2-mode https://github.com/mooz/js2-mode.git ("js2-mode")
 rvm.el https://github.com/senny/rvm.el.git ("rvm")
+rsense https://github.com/m2ym/rsense.git ("etc/rsense") ("sh $DIR/setup/rsense_setup.sh")

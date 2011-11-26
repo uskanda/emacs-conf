@@ -3,4 +3,5 @@ vline
 col-highlight
 eldoc-extension
 ruby-block
+pos-tip
 
