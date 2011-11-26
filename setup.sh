@@ -67,6 +67,11 @@ do
 install_from_emacswiki $var
 done
 
+while read LISPNAME URL 
+do
+  install_from_url $URL $LISPNAME
+done < $DIR/setup/other_lisps
+
 cd $REPOSDIR
 #get elisps from git repository
 while read GITNAME GITURI GITELISPSSTR GITSUBCOMMANDSSTR
