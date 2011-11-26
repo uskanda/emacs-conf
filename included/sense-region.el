@@ -520,7 +520,7 @@
       (set-face-background sense-region-selection-base-face "#666688")
       ))
 
-;; $BJQ?t$,A}$($?$i(B, sense-region-save-region $B$bJQ99$9$k(B.
+;; 変数が増えたら, sense-region-save-region も変更する.
 (defvar sense-region-mode             nil)
 (defvar sense-region-overlay-list     nil)
 (defvar sense-region-face             nil)
@@ -585,7 +585,7 @@
   (mell-transient-region-stay)
   )
 
-(defun sense-region-set-word (&optional position) ; mell $B9T$-$+$J(B?
+(defun sense-region-set-word (&optional position) ; mell 行きかな?
   (interactive)
   (or position (setq position (point)))
   (goto-char position)
@@ -599,7 +599,7 @@
     (mell-transient-region-stay)
     t))
 
-(defun sense-region-set-next-word (&optional position) ; mell $B9T$-$+$J(B?
+(defun sense-region-set-next-word (&optional position) ; mell 行きかな?
   (interactive)
   (or position (setq position (region-end)))
   (goto-char position)
@@ -641,7 +641,7 @@
     (skip-syntax-forward (string (char-syntax (char-after)))))
    ))
 
-(defun sense-region-set-symbol (&optional position start) ; mell $B9T$-$+$J(B?
+(defun sense-region-set-symbol (&optional position start) ; mell 行きかな?
   (interactive)
   (or position (setq position (point)))
   (or start    (setq start    (point)))
@@ -661,7 +661,7 @@
       nil)
     ))
 
-(defun sense-region-set-url (&optional position) ; mell $B9T$-$+$J(B?
+(defun sense-region-set-url (&optional position) ; mell 行きかな?
   (interactive)
   (or position (setq position (point)))
   (goto-char position)
@@ -678,7 +678,7 @@
       nil)
     ))
 
-(defun sense-region-set-email (&optional position) ; mell $B9T$-$+$J(B?
+(defun sense-region-set-email (&optional position) ; mell 行きかな?
   (interactive)
   (or position (setq position (point)))
   (goto-char position)

@@ -9,7 +9,7 @@
 (setq scroll-conservatively 1)
 (setq completion-ignore-case t) ; 補完時に大文字小文字を区別しない
 (setq initial-major-mode 'fundamental-mode) ;*scratch*バッファのデフォルトメジャーモードを決定
-(line-number-mode nil) ; 行番号を表示
+;(line-number-mode nil) ; 行番号を表示
 (display-time-mode 1) ;現在の時間を表示
 (show-paren-mode 1) ;対応する括弧を強調表示
 (transient-mark-mode 1) ;マークした箇所からカーソル位置までを強調表示

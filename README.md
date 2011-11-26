@@ -20,7 +20,11 @@ Mac OS X, Linux, Windows(Cygwin)で動作可能な設定ファイルとしてい
   * Windows XP SP3 (+ Cygwin)
   * Windows 7 SP1 (+ Cygwin)  
 
-
+## インストールする外部プログラム
+* sdic
+http://www.namazu.org/~tsuchiya/sdic/index.html
+* Rsense
+http://cx4a.org/software/rsense/
   
 ## Concepts
 * Portability

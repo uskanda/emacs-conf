@@ -37,7 +37,7 @@
 (defvar migemo-options '("-S" "migemo" "-t" "emacs"  "-i" "\a")
   "*Options for migemo command.")
 
-(defvar migemo-white-space-regexp "[ ¡¡\t\r\n]*"
+(defvar migemo-white-space-regexp "[ ã€€\t\r\n]*"
   "*Regexp representing white spaces.")
 
 ;; for C/Migemo
@@ -461,7 +461,7 @@ into the migemo's regexp pattern."
 			(if migemo-emacs21p
 			    (put-text-property 0 (length str)
 					       'face migemo-dabbrev-ol-face str)
-			  (setq str (concat "¡Ú" str "¡Û")))
+			  (setq str (concat "ã€" str "ã€‘")))
 			(message "(%d): %s%s%s"
 				 (count-lines (point-min) matched-start)
 				 (buffer-substring-no-properties lstart matched-start)
@@ -676,5 +676,5 @@ This function used with Megemo feature."
 (provide 'migemo)
 
 ;; sample
-;; 0123 abcd ABCD ¤Ò¤é¤¬¤Ê ¥«¥¿¥«¥Ê ´Á»ú !"[#\$]%^&_':`(;)<*=+>,?-@./{|}~
+;; 0123 abcd ABCD ã²ã‚‰ãŒãª ã‚«ã‚¿ã‚«ãƒŠ æ¼¢å­— !"[#\$]%^&_':`(;)<*=+>,?-@./{|}~
 

@@ -60,7 +60,6 @@
 
 ;;; Code:
 
-
 ;; User definable variables
 
 (defgroup yaml nil
@@ -110,7 +109,6 @@ that key is pressed to begin a block literal."
   :type 'string
   :group 'yaml)
 
-
 ;; Constants
 
 (defconst yaml-mode-version "0.0.7" "Version of `yaml-mode.'")
@@ -180,7 +178,6 @@ that key is pressed to begin a block literal."
           " *$")
   "Regexp matching certain scalar constants in scalar context")
 
-
 ;; Mode setup
 
 (defvar yaml-mode-map ()
@@ -227,7 +224,6 @@ that key is pressed to begin a block literal."
          nil nil nil nil
          (font-lock-syntactic-keywords . yaml-font-lock-syntactic-keywords))))
 
-
 ;; Font-lock support
 
 (defvar yaml-font-lock-keywords
@@ -307,7 +303,6 @@ the entire buffer in `font-lock-string-face'."
          ((goto-char end)))))
     found))
 
-
 ;; Indentation and electric keys
 
 (defun yaml-compute-indentation ()

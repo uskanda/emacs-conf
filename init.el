@@ -42,6 +42,10 @@
     abbrev-minibuffer-display ;ミニバッファ中のマイナーモード表示を消す
     uniquify                  ;同一名のバッファをフォルダ名で区別できるようにする
 ;;----------------------------------------------------------------------------;;
+;; メジャーモードの追加設定
+;;----------------------------------------------------------------------------;;
+    markdown-mode             ;Markdown編集用モード
+;;----------------------------------------------------------------------------;;
 ;; pos-tipの設定
 ;;----------------------------------------------------------------------------;;
     pos-tip
@@ -85,11 +89,10 @@ skeleton
 ;; Load Settings
 ;;----------------------------------------------------------------------------;;
 ;;load-path configuration
-(defun add-to-load-path (&rest paths)
-  (mapc '(lambda (path)
-           (add-to-list 'load-path path))
-        (mapcar 'expand-file-name paths)))
-(add-to-load-path "~/.emacs.d/included" "~/.emacs.d/conf" "~/.emacs.d/installed" "~/.emacs.d/" "~/.emacs.d/development")
+(add-to-list 'load-path "~/.emacs.d/conf")
+(add-to-list 'load-path "~/.emacs.d/included")
+(add-to-list 'load-path "~/.emacs.d/installed")
+(add-to-list 'load-path "~/.emacs.d/development")
 
 ;;Load
 (defun load-each-settings (lisp-names)
