@@ -7,4 +7,5 @@ pos-tip
 sdic-inline
 sdic-inline-pos-tip
 auto-async-byte-compile
+xml-rpc
 
