@@ -4,17 +4,9 @@
 (require 'rsense)
 
 (setq rsense-rurema-home "~/.emacs.d/ext/rsense/refm")
-
 (setq rsense-rurema-refe "refe-1_9_2 -e UTF-8")
 
-(ac-define-source rsense-yas
-  '((candidates . ac-rsense-candidates)
-   (prefix . "\\(?:\\.\\|::\\)\\(.*\\)")
-   (requires . 0)
-   (document . ac-rsense-documentation)
-   (action . yas/expand)
-   (cache)))
-
+(require 'ac-rsense-yas-expand)
 (add-hook 'ruby-mode-hook
          (lambda ()
            (setq ac-sources (append '(ac-source-rsense-yas) ac-sources))))
