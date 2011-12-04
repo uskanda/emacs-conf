@@ -2,7 +2,7 @@
 	(concat "/opt/local/bin:~/Scripts:" (getenv "PATH")))
 (setq exec-path (append '("/opt/local/bin") exec-path))
 (setq ns-command-modifier (quote meta))
-(setq ns-alternate-modifier (quote meta))
+(setq ns-alternate-modifier (quote super))
 (define-key global-map [ns-drag-file] 'ns-find-file)
 (setq ns-pop-up-frames nil)
 ;(setq line-move-visual nil)

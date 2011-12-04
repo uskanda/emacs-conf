@@ -24,6 +24,13 @@
              (define-key weblogger-entry-mode-map (kbd "C-c c")   'weblogger-start-entry)
              (define-key weblogger-entry-mode-map (kbd "C-c C-c") 'my-weblogger-send-entry)
              (define-key weblogger-entry-mode-map (kbd "C-c C-k") 'my-weblogger-quit)
-;             (zencoding-mode t)                     ; zencoding-mode
-             (yas/minor-mode t)                     ; YASnippet マイナーモードを有効
+             (if (featurep 'zencoding-mode)(zencoding-mode t))                     ; zencoding-mode
+             (if (featurep 'yasnippet)(yas/minor-mode t))                     ; YASnippet マイナーモードを有効
              (auto-fill-mode -1)))                  ; 自動改行をOFF
+
+
+
+
+
+
+
