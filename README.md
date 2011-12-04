@@ -21,11 +21,20 @@ Mac OS X, Linux, Windows(Cygwin)で動作可能な設定ファイルとしてい
   * Windows 7 SP1 (+ Cygwin)  
 
 ## インストールする外部プログラム
+この設定ファイルのセットアップを行うと、下記外部プログラムをインストールします。
+
 * sdic
 http://www.namazu.org/~tsuchiya/sdic/index.html
 * Rsense
 http://cx4a.org/software/rsense/
   
+## 一部機能を使用しないようにする
+機能単位で使う機能/使わない機能の設定を
+conf.elから行うことができます。conf.el内の説明に従い、必要のない機能をコメントアウトし、
+Emacsを再起動してください。
+より詳細な設定変更を行いたい場合は、confディレクトリ以下を参照してください。
+conf.elにて"abc"という機能の詳細設定はconf/conf-abc.elに存在します。
+
 ## Concepts
 * Portability
 It works on Mac OS X, Linux and Windows(Cygwin).
