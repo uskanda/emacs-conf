@@ -1,0 +1,1 @@
+(require 'zencoding-mode)
